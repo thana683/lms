@@ -1,5 +1,5 @@
 {
-  "installCommand": "composer install --no-dev --optimize-autoloader && npm install && npm run build",
+  "installCommand": "npm install && npm run build",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.4"
