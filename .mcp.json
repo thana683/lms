@@ -1,0 +1,15 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "php",
+            "args": [
+                "artisan",
+                "boost:mcp"
+            ]
+        },
+        "vercel": {
+            "type": "http",
+            "url": "https://mcp.vercel.com"
+        }
+    }
+}
