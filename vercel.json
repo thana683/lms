@@ -4,12 +4,12 @@
   "builds": [
     {
       "src": "api/index.php",
-      "use": "vercel-php@0.9.0",
-      "config": { "includeFiles": ["public/**", "resources/**", "bootstrap/**", "config/**", "routes/**", "app/**", "database/**"] }
+      "use": "vercel-php@0.9.0"
     },
     {
-      "src": "public/build/assets/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "public/build" }
     },
     {
       "src": "public/images/**",
@@ -25,7 +25,7 @@
     }
   ],
   "routes": [
-    { "src": "/build/assets/(.*)", "dest": "public/build/assets/$1" },
+    { "src": "/build/(.*)", "dest": "public/build/$1" },
     { "src": "/images/(.*)", "dest": "public/images/$1" },
     { "src": "/favicon.ico", "dest": "public/favicon.ico" },
     { "src": "/robots.txt", "dest": "public/robots.txt" },
