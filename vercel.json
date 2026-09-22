@@ -1,15 +1,19 @@
 {
-  "installCommand": "npm install && npm run build",
-  "framework": null,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.4"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.php",
+      "use": "vercel-php@0.7.4",
+      "config": { "includeFiles": ["public/**", "resources/**", "bootstrap/**", "config/**", "routes/**", "app/**", "database/**"] }
+    },
+    {
+      "src": "public/build/**",
+      "use": "@vercel/static"
     }
-  },
-  "rewrites": [
-    { "source": "/build/(.*)", "destination": "/public/build/$1" },
-    { "source": "/favicon.ico", "destination": "/public/favicon.ico" },
-    { "source": "/robots.txt", "destination": "/public/robots.txt" },
-    { "source": "/(.*)", "destination": "/api/index.php" }
+  ],
+  "routes": [
+    { "src": "/build/(.*)", "dest": "public/build/$1" },
+    { "src": "/(.*)", "dest": "api/index.php" }
   ]
 }
