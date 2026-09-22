@@ -11,36 +11,34 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased bg-[#f7f5ef] text-[#1c1c1a]">
-        <header class="border-b border-[#1c2b4a]/10 bg-white/90 backdrop-blur sticky top-0 z-50">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-20">
-                <div class="flex items-center gap-3">
-                    <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }} logo" class="h-11 w-11 object-contain">
-                    <div class="leading-tight">
-                        <p class="font-semibold tracking-wide text-[#1c2b4a] text-base">{{ config('app.name') }}</p>
-                        <p class="text-[11px] uppercase tracking-[0.2em] text-[#8a7530]">Excellence in Willpower Development</p>
-                    </div>
-                </div>
+    <body class="antialiased bg-white text-[#0a0a0a]" style="font-feature-settings: normal;">
+        {{-- Top Navigation Bar --}}
+        <header class="bg-white border-b border-[#e9e8e7]">
+            <div class="mx-auto max-w-[1280px] px-6 lg:px-8 h-16 lg:h-[72px] flex items-center justify-between">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" class="h-8 w-8 object-contain rounded-[2px]">
+                    <span class="text-[20px] font-semibold tracking-[-0.4px]">{{ config('app.name') }}</span>
+                </a>
 
-                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-[#1c2b4a]">
-                    <a href="#programs" class="hover:text-[#8a7530] transition-colors">Programs</a>
-                    <a href="#about" class="hover:text-[#8a7530] transition-colors">About</a>
-                    <a href="#contact" class="hover:text-[#8a7530] transition-colors">Contact</a>
+                <nav class="hidden lg:flex items-center gap-8 text-[14px] font-medium">
+                    <a href="#programs" class="hover:text-[#535250] transition-colors">Programs</a>
+                    <a href="#about" class="hover:text-[#535250] transition-colors">About</a>
+                    <a href="#contact" class="hover:text-[#535250] transition-colors">Contact</a>
                 </nav>
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-4">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="inline-flex items-center px-5 py-2 rounded-sm bg-[#1c2b4a] text-white text-sm font-medium hover:bg-[#13203a] transition-colors">
+                            <a href="{{ url('/dashboard') }}" class="inline-flex items-center px-6 py-3 rounded-[2px] bg-[#0a0a0a] text-white text-[16px] font-medium hover:bg-[#333333] transition-colors">
                                 Dashboard
                             </a>
                         @else
-                            <a href="{{ route('login') }}" class="inline-flex items-center px-4 py-2 rounded-sm text-sm font-medium text-[#1c2b4a] border border-[#1c2b4a]/20 hover:border-[#1c2b4a]/50 transition-colors">
+                            <a href="{{ route('login') }}" class="text-[14px] font-medium hover:text-[#535250] transition-colors">
                                 Log in
                             </a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="inline-flex items-center px-5 py-2 rounded-sm bg-[#8a7530] text-white text-sm font-medium hover:bg-[#6f5e26] transition-colors">
-                                    Enroll
+                                <a href="{{ route('register') }}" class="inline-flex items-center px-6 py-3 rounded-[2px] bg-[#0a0a0a] text-white text-[16px] font-medium hover:bg-[#333333] transition-colors">
+                                    Apply Now
                                 </a>
                             @endif
                         @endauth
@@ -50,131 +48,134 @@
         </header>
 
         <main>
-            <section class="relative overflow-hidden bg-[#0f1b33]">
-                <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(circle_at_20%_20%,white,transparent_45%)]"></div>
-                <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <p class="uppercase tracking-[0.3em] text-[#c9a94f] text-xs font-semibold mb-6">A World-Leading Institute of Willpower Science</p>
-                        <h1 class="text-4xl lg:text-6xl font-semibold text-white leading-tight mb-6">
-                            {{ config('app.name') }}
-                        </h1>
-                        <p class="text-lg text-[#c7cede] leading-relaxed max-w-xl mb-10">
-                            Advancing the discipline of mental resilience and meditative mastery through rigorous curricula,
-                            evidence-based practice, and a global community of certified instructors.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#programs" class="inline-flex items-center px-7 py-3 rounded-sm bg-[#c9a94f] text-[#0f1b33] font-semibold hover:bg-[#e0be62] transition-colors">
-                                Explore Programs
+            {{-- Centered hero: headline / subtext / CTA row, no image --}}
+            <section class="bg-white">
+                <div class="mx-auto max-w-[1280px] px-6 lg:px-8 pt-20 pb-24 lg:pt-[120px] lg:pb-[120px] flex flex-col items-center text-center">
+                    <h1 class="text-[40px] lg:text-[60px] font-normal leading-[1] tracking-[-1.8px] text-[#0a0a0a] max-w-4xl">
+                        A world-leading institute for willpower and meditation mastery
+                    </h1>
+                    <p class="mt-6 text-[20px] leading-[1.4] text-[#535250] max-w-[600px]">
+                        Rigorous curricula, evidence-based practice, and a global community of certified
+                        instructors — built to the standards of a leading academic institution.
+                    </p>
+                    <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+                        <a href="#programs" class="inline-flex items-center px-6 py-3 rounded-[2px] bg-[#0a0a0a] text-white text-[16px] font-medium hover:bg-[#333333] transition-colors">
+                            Explore Programs
+                        </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="inline-flex items-center px-5 py-3 rounded-[2px] border border-[#0a0a0a] text-[#0a0a0a] text-[16px] font-medium hover:bg-[#e9e8e7] transition-colors">
+                                Apply Now
                             </a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="inline-flex items-center px-7 py-3 rounded-sm border border-white/30 text-white font-semibold hover:border-white/70 transition-colors">
-                                    Apply Now
-                                </a>
-                            @endif
+                        @endif
+                    </div>
+                </div>
+            </section>
+
+            {{-- Stats row --}}
+            <section class="bg-white border-t border-[#e0dedc]">
+                <div class="mx-auto max-w-[1280px] px-6 lg:px-8 py-16 grid grid-cols-2 lg:grid-cols-4 gap-y-10 text-center">
+                    <div>
+                        <p class="text-[48px] font-normal tracking-[-0.64px] text-[#0a0a0a]">40+</p>
+                        <p class="mt-2 text-[16px] text-[#535250]">Years of Instruction</p>
+                    </div>
+                    <div>
+                        <p class="text-[48px] font-normal tracking-[-0.64px] text-[#0a0a0a]">100K+</p>
+                        <p class="mt-2 text-[16px] text-[#535250]">Certified Graduates</p>
+                    </div>
+                    <div>
+                        <p class="text-[48px] font-normal tracking-[-0.64px] text-[#0a0a0a]">50+</p>
+                        <p class="mt-2 text-[16px] text-[#535250]">Branch Campuses</p>
+                    </div>
+                    <div>
+                        <p class="text-[48px] font-normal tracking-[-0.64px] text-[#0a0a0a]">12</p>
+                        <p class="mt-2 text-[16px] text-[#535250]">Countries Reached</p>
+                    </div>
+                </div>
+            </section>
+
+            {{-- Dark section band: headline + category pills + program cards --}}
+            <section id="programs" class="bg-[#1f1f1e] py-16 lg:py-20">
+                <div class="mx-auto max-w-[1280px] px-6 lg:px-8">
+                    <h2 class="text-[32px] lg:text-[40px] font-normal leading-[1.1] tracking-[-0.8px] text-white text-center max-w-2xl mx-auto">
+                        A structured path from foundation to mastery
+                    </h2>
+
+                    <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
+                        <span class="inline-flex items-center rounded-full px-4 py-2 text-[14px] font-medium bg-[#0a0a0a] text-white">Foundation</span>
+                        <span class="inline-flex items-center rounded-full px-4 py-2 text-[14px] font-medium text-white/60">Instructor Diploma</span>
+                        <span class="inline-flex items-center rounded-full px-4 py-2 text-[14px] font-medium text-white/60">Senior Mastery</span>
+                    </div>
+
+                    <div class="mt-12 grid md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-[2px] p-6">
+                            <p class="text-[14px] font-medium text-[#949189]">01</p>
+                            <h3 class="mt-2 text-[24px] font-normal tracking-[-0.4px] text-[#0a0a0a]">Foundation Certificate</h3>
+                            <p class="mt-3 text-[16px] leading-[1.5] text-[#535250]">Core principles of meditative discipline and willpower training for new students.</p>
+                        </div>
+                        <div class="bg-white rounded-[2px] p-6">
+                            <p class="text-[14px] font-medium text-[#949189]">02</p>
+                            <h3 class="mt-2 text-[24px] font-normal tracking-[-0.4px] text-[#0a0a0a]">Instructor Diploma</h3>
+                            <p class="mt-3 text-[16px] leading-[1.5] text-[#535250]">Advanced coursework and supervised practicum for graduates pursuing teaching certification.</p>
+                        </div>
+                        <div class="bg-white rounded-[2px] p-6">
+                            <p class="text-[14px] font-medium text-[#949189]">03</p>
+                            <h3 class="mt-2 text-[24px] font-normal tracking-[-0.4px] text-[#0a0a0a]">Senior Mastery Track</h3>
+                            <p class="mt-3 text-[16px] leading-[1.5] text-[#535250]">Research-driven specialization for senior instructors shaping the institute's curriculum.</p>
                         </div>
                     </div>
-                    <div class="flex justify-center lg:justify-end">
-                        <div class="rounded-full bg-white/5 border border-white/10 p-10">
-                            <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" class="w-56 h-56 lg:w-72 lg:h-72 object-contain drop-shadow-2xl">
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            <section class="border-y border-[#1c2b4a]/10 bg-white">
-                <div class="mx-auto max-w-7xl px-6 lg:px-8 py-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            {{-- Two-column text + CTA near bottom --}}
+            <section id="about" class="bg-white py-20 lg:py-[120px]">
+                <div class="mx-auto max-w-[1280px] px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <p class="text-3xl font-semibold text-[#1c2b4a]">40+</p>
-                        <p class="text-sm text-[#5b6172] mt-1">Years of Instruction</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-semibold text-[#1c2b4a]">100,000+</p>
-                        <p class="text-sm text-[#5b6172] mt-1">Certified Graduates</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-semibold text-[#1c2b4a]">50+</p>
-                        <p class="text-sm text-[#5b6172] mt-1">Branch Campuses</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-semibold text-[#1c2b4a]">12</p>
-                        <p class="text-sm text-[#5b6172] mt-1">Countries Reached</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="programs" class="mx-auto max-w-7xl px-6 lg:px-8 py-24">
-                <div class="max-w-2xl mb-14">
-                    <p class="uppercase tracking-[0.25em] text-[#8a7530] text-xs font-semibold mb-3">Academic Programs</p>
-                    <h2 class="text-3xl lg:text-4xl font-semibold text-[#1c2b4a]">A structured path from foundation to mastery</h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="p-8 bg-white border border-[#1c2b4a]/10 rounded-sm hover:shadow-lg transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-[#c9a94f]/15 text-[#8a7530] flex items-center justify-center font-semibold mb-6">1</div>
-                        <h3 class="font-semibold text-lg text-[#1c2b4a] mb-2">Foundation Certificate</h3>
-                        <p class="text-sm text-[#5b6172] leading-relaxed">Core principles of meditative discipline and willpower training for new students.</p>
-                    </div>
-                    <div class="p-8 bg-white border border-[#1c2b4a]/10 rounded-sm hover:shadow-lg transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-[#c9a94f]/15 text-[#8a7530] flex items-center justify-center font-semibold mb-6">2</div>
-                        <h3 class="font-semibold text-lg text-[#1c2b4a] mb-2">Instructor Diploma</h3>
-                        <p class="text-sm text-[#5b6172] leading-relaxed">Advanced coursework and supervised practicum for graduates pursuing certification to teach.</p>
-                    </div>
-                    <div class="p-8 bg-white border border-[#1c2b4a]/10 rounded-sm hover:shadow-lg transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-[#c9a94f]/15 text-[#8a7530] flex items-center justify-center font-semibold mb-6">3</div>
-                        <h3 class="font-semibold text-lg text-[#1c2b4a] mb-2">Senior Mastery Track</h3>
-                        <p class="text-sm text-[#5b6172] leading-relaxed">Research-driven specialization for senior instructors shaping the institute's curriculum.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="about" class="bg-[#1c2b4a]">
-                <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <p class="uppercase tracking-[0.25em] text-[#c9a94f] text-xs font-semibold mb-3">Our Mission</p>
-                        <h2 class="text-3xl lg:text-4xl font-semibold text-white mb-6">Building disciplined minds, one graduate at a time</h2>
-                        <p class="text-[#c7cede] leading-relaxed mb-6">
-                            {{ config('app.name') }} sets the global standard for willpower and meditation education,
-                            combining time-tested contemplative methods with a rigorous, auditable academic structure —
-                            enrollment, coursework, examination, and certification, all governed with the same standards
-                            expected of a leading university.
+                        <h2 class="text-[28px] lg:text-[32px] font-normal tracking-[-0.64px] text-[#0a0a0a]">Building disciplined minds, one graduate at a time</h2>
+                        <p class="mt-4 text-[16px] leading-[1.5] text-[#535250]">
+                            {{ config('app.name') }} sets the standard for willpower and meditation education —
+                            combining time-tested contemplative methods with a rigorous, auditable academic
+                            structure: enrollment, coursework, examination, and certification, governed to the
+                            same standards expected of a leading university.
                         </p>
-                        <ul class="space-y-3 text-[#c7cede] text-sm">
-                            <li class="flex items-start gap-3"><span class="mt-1 w-1.5 h-1.5 rounded-full bg-[#c9a94f] shrink-0"></span> Standardized, examinable curriculum across every branch</li>
-                            <li class="flex items-start gap-3"><span class="mt-1 w-1.5 h-1.5 rounded-full bg-[#c9a94f] shrink-0"></span> Verified instructor licensing and continuing accreditation</li>
-                            <li class="flex items-start gap-3"><span class="mt-1 w-1.5 h-1.5 rounded-full bg-[#c9a94f] shrink-0"></span> Transparent academic records and enrollment reporting</li>
-                        </ul>
                     </div>
-                    <div class="rounded-sm overflow-hidden border border-white/10 bg-white/5 p-10 flex items-center justify-center">
-                        <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" class="w-48 h-48 object-contain opacity-90">
+                    <div class="flex items-center gap-3">
+                        <input type="email" placeholder="you@example.com" class="flex-1 h-12 px-4 rounded-[2px] border border-[#e0dedc] text-[16px] placeholder:text-[#949189] focus:outline-none focus:border-[#333333]">
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="inline-flex items-center h-12 px-6 rounded-[2px] bg-[#0a0a0a] text-white text-[16px] font-medium hover:bg-[#333333] transition-colors whitespace-nowrap">
+                                Request Info
+                            </a>
+                        @endif
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer id="contact" class="bg-[#0f1b33] border-t border-white/10">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8 py-14 grid md:grid-cols-3 gap-10 text-[#c7cede] text-sm">
+        {{-- Footer --}}
+        <footer id="contact" class="bg-white border-t border-[#e0dedc]">
+            <div class="mx-auto max-w-[1280px] px-6 lg:px-8 py-14 grid md:grid-cols-3 gap-10 text-[14px] text-[#535250]">
                 <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" class="h-9 w-9 object-contain">
-                        <p class="font-semibold text-white">{{ config('app.name') }}</p>
+                    <div class="flex items-center gap-2 mb-3">
+                        <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" class="h-6 w-6 object-contain rounded-[2px]">
+                        <span class="text-[16px] font-semibold text-[#0a0a0a]">{{ config('app.name') }}</span>
                     </div>
-                    <p class="leading-relaxed">A world-leading institute for willpower and meditation education.</p>
+                    <p class="leading-[1.45]">A world-leading institute for willpower and meditation education.</p>
                 </div>
                 <div>
-                    <p class="font-semibold text-white mb-3">Quick Links</p>
+                    <p class="text-[16px] font-medium text-[#0a0a0a] mb-3">Quick Links</p>
                     <ul class="space-y-2">
-                        <li><a href="#programs" class="hover:text-white transition-colors">Programs</a></li>
-                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#programs" class="hover:text-[#0a0a0a] transition-colors">Programs</a></li>
+                        <li><a href="#about" class="hover:text-[#0a0a0a] transition-colors">About</a></li>
                         @if (Route::has('login'))
-                            <li><a href="{{ route('login') }}" class="hover:text-white transition-colors">Student Login</a></li>
+                            <li><a href="{{ route('login') }}" class="hover:text-[#0a0a0a] transition-colors">Student Login</a></li>
                         @endif
                     </ul>
                 </div>
                 <div>
-                    <p class="font-semibold text-white mb-3">Contact</p>
+                    <p class="text-[16px] font-medium text-[#0a0a0a] mb-3">Contact</p>
                     <p>info@willpower.institute</p>
                 </div>
             </div>
-            <div class="border-t border-white/10 py-6 text-center text-xs text-[#8892a8]">
+            <div class="border-t border-[#e0dedc] py-6 text-center text-[12px] text-[#949189]">
                 &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
             </div>
         </footer>
