@@ -8,12 +8,24 @@
       "config": { "includeFiles": ["public/**", "resources/**", "bootstrap/**", "config/**", "routes/**", "app/**", "database/**"] }
     },
     {
-      "src": "public/**",
+      "src": "public/build/assets/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/images/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/favicon.ico",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/robots.txt",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "src": "/build/(.*)", "dest": "public/build/$1" },
+    { "src": "/build/assets/(.*)", "dest": "public/build/assets/$1" },
     { "src": "/images/(.*)", "dest": "public/images/$1" },
     { "src": "/favicon.ico", "dest": "public/favicon.ico" },
     { "src": "/robots.txt", "dest": "public/robots.txt" },
